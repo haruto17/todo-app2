@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import "./Todo.css";
 
 function Todo() {
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState([] as string[]);
 
     const [task, setTask] = useState("");
 
     const handleClick = () => {
-        console.log(task);
+        if (task.length === 0) {
+            return;
+        }
+        setTodos([...todos, task]);
+        setTask("");
     };
 
     return (
@@ -20,7 +24,11 @@ function Todo() {
                 ></input>
                 <button onClick={handleClick}>add</button>
             </div>
-            <ul></ul>
+            <ul>
+                {todos.map((todo, index) => (
+                    <li key={index}>{todo}</li>
+                ))}
+            </ul>
         </div>
     );
 }
