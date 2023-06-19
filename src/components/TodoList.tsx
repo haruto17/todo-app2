@@ -33,6 +33,22 @@ function TodoList() {
         setTask("");
     };
 
+    const handleRemoveTask = (index: number) => {
+        const newTodos = [...todos];
+        newTodos.splice(index, 1);
+        setTodos(newTodos);
+    };
+
+    const handleUpdateTask = (index: number) => {
+        let newTodos = todos.map((todo, todoIndex) => {
+            if (todoIndex === index) {
+                todo.isCompleted = !todo.isCompleted;
+            }
+            return todo;
+        });
+        setTodos(newTodos);
+    };
+
     return (
         <div>
             <h1>Todo List</h1>
@@ -47,7 +63,27 @@ function TodoList() {
             </form>
             <ul>
                 {todos.map((todo, index) => (
-                    <li key={index}>{todo.task}</li>
+                    <li
+                        key={index}
+                        style={{
+                            textDecoration: todo.isCompleted
+                                ? "line-through"
+                                : "none",
+                        }}
+                    >
+                        <input
+                            type="checkbox"
+                            checked={todo.isCompleted}
+                            onChange={() => handleUpdateTask(index)}
+                        />
+                        {todo.task}
+                        <span
+                            onClick={() => handleRemoveTask(index)}
+                            style={{ cursor: "pointer" }}
+                        >
+                            X
+                        </span>
+                    </li>
                 ))}
             </ul>
         </div>
