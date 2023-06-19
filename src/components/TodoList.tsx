@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Checkbox } from "@mantine/core";
 
 function TodoList() {
     const initialState = [
@@ -71,8 +72,7 @@ function TodoList() {
                                 : "none",
                         }}
                     >
-                        <input
-                            type="checkbox"
+                        <Checkbox
                             checked={todo.isCompleted}
                             onChange={() => handleUpdateTask(index)}
                         />
