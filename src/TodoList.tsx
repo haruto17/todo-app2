@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Checkbox, Text } from "@mantine/core";
 import { IconTrash } from "@tabler/icons-react";
+import "./TodoList.css";
 
 function TodoList() {
     const initialState = [
@@ -55,28 +56,26 @@ function TodoList() {
         <div>
             <h1>Todo List</h1>
             <form onSubmit={handleSubmit}>
-                Add Task :
                 <input value={task} placeholder="Add New Task" onChange={handleNewTask} />
                 <button type="submit">Add</button>
             </form>
-            <ul>
-                {todos.map((todo, index) => (
-                    <li
-                        key={index}
-                        style={{
-                            textDecoration: todo.isCompleted ? "line-through" : "none",
-                        }}
-                    >
-                        <Checkbox checked={todo.isCompleted} onChange={() => handleUpdateTask(index)}></Checkbox>
-                        <Text align="center">{todo.task}</Text>
-                        <IconTrash
-                            size="1.2rem"
-                            onClick={() => handleRemoveTask(index)}
-                            style={{ cursor: "pointer" }}
-                        ></IconTrash>
-                    </li>
-                ))}
-            </ul>
+
+            {todos.map((todo, index) => (
+                <li
+                    key={index}
+                    style={{
+                        textDecoration: todo.isCompleted ? "line-through" : "none",
+                    }}
+                >
+                    <Checkbox checked={todo.isCompleted} onChange={() => handleUpdateTask(index)}></Checkbox>
+                    <Text align="center">{todo.task}</Text>
+                    <IconTrash
+                        size="1.2rem"
+                        onClick={() => handleRemoveTask(index)}
+                        style={{ cursor: "pointer" }}
+                    ></IconTrash>
+                </li>
+            ))}
         </div>
     );
 }

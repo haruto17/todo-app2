@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import TodoList from "./components/TodoList";
+import TodoList from "./TodoList";
 import {
     MantineProvider,
     ColorScheme,
@@ -35,13 +35,15 @@ function App() {
     const toggleColorScheme = (value?: ColorScheme) =>
         setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
     return (
-        <div>
+        <div className="todolist">
             <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
                 <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
                     <Demo />
                 </MantineProvider>
             </ColorSchemeProvider>
-            <TodoList />
+            <div>
+                <TodoList />
+            </div>
         </div>
     );
 }
