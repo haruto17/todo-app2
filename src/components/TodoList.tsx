@@ -55,11 +55,7 @@ function TodoList() {
             <h1>Todo List</h1>
             <form onSubmit={handleSubmit}>
                 Add Task :
-                <input
-                    value={task}
-                    placeholder="Add New Task"
-                    onChange={handleNewTask}
-                />
+                <input value={task} placeholder="Add New Task" onChange={handleNewTask} />
                 <button type="submit">Add</button>
             </form>
             <ul>
@@ -67,20 +63,12 @@ function TodoList() {
                     <li
                         key={index}
                         style={{
-                            textDecoration: todo.isCompleted
-                                ? "line-through"
-                                : "none",
+                            textDecoration: todo.isCompleted ? "line-through" : "none",
                         }}
                     >
-                        <Checkbox
-                            checked={todo.isCompleted}
-                            onChange={() => handleUpdateTask(index)}
-                        />
+                        <Checkbox checked={todo.isCompleted} onChange={() => handleUpdateTask(index)} />
                         {todo.task}
-                        <span
-                            onClick={() => handleRemoveTask(index)}
-                            style={{ cursor: "pointer" }}
-                        >
+                        <span onClick={() => handleRemoveTask(index)} style={{ cursor: "pointer" }}>
                             X
                         </span>
                     </li>
