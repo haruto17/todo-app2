@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Checkbox } from "@mantine/core";
+import { IconTrash } from "@tabler/icons-react";
 
 function TodoList() {
     const initialState = [
@@ -66,11 +67,13 @@ function TodoList() {
                             textDecoration: todo.isCompleted ? "line-through" : "none",
                         }}
                     >
-                        <Checkbox checked={todo.isCompleted} onChange={() => handleUpdateTask(index)} />
+                        <Checkbox checked={todo.isCompleted} onChange={() => handleUpdateTask(index)}></Checkbox>
                         {todo.task}
-                        <span onClick={() => handleRemoveTask(index)} style={{ cursor: "pointer" }}>
-                            X
-                        </span>
+                        <IconTrash
+                            size="1.2rem"
+                            onClick={() => handleRemoveTask(index)}
+                            style={{ cursor: "pointer" }}
+                        ></IconTrash>
                     </li>
                 ))}
             </ul>
