@@ -1,11 +1,11 @@
-import React from "react";
-import TodoList from "./components/TodoList";
+import { MantineProvider } from "@mantine/core";
+import TodoList from "./TodoList";
 
 function App() {
     return (
-        <div style={{ margin: "2em" }}>
+        <MantineProvider theme={{ colorScheme: "dark" }} withGlobalStyles withNormalizeCSS>
             <TodoList />
-        </div>
+        </MantineProvider>
     );
 }
 
