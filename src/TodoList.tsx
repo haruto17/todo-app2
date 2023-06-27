@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Checkbox, Text, Input, Flex, Button, List } from "@mantine/core";
 import { IconTrash } from "@tabler/icons-react";
-import "./TodoList.css";
 
 function TodoList() {
     const initialState = [
