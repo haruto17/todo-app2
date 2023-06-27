@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Checkbox, Text, Input, Flex, Button } from "@mantine/core";
+import { Checkbox, Text, Input, Flex, Button, List } from "@mantine/core";
 import { IconTrash } from "@tabler/icons-react";
 import "./TodoList.css";
 
@@ -69,22 +69,26 @@ function TodoList() {
                 </Flex>
             </form>
 
-            {todos.map((todo, index) => (
-                <li
-                    key={index}
-                    style={{
-                        textDecoration: todo.isCompleted ? "line-through" : "none",
-                    }}
-                >
-                    <Checkbox checked={todo.isCompleted} onChange={() => handleUpdateTask(index)}></Checkbox>
-                    <Text align="center">{todo.task}</Text>
-                    <IconTrash
-                        size="1.2rem"
-                        onClick={() => handleRemoveTask(index)}
-                        style={{ cursor: "pointer" }}
-                    ></IconTrash>
-                </li>
-            ))}
+            <List listStyleType="none" spacing="xl">
+                {todos.map((todo, index) => (
+                    <List.Item
+                        key={index}
+                        style={{
+                            textDecoration: todo.isCompleted ? "line-through" : "none",
+                        }}
+                    >
+                        <Flex direction={{ base: "column", sm: "row" }} gap={{ base: "sm", sm: "lg" }} align="center">
+                            <Checkbox checked={todo.isCompleted} onChange={() => handleUpdateTask(index)}></Checkbox>
+                            <Text align="center">{todo.task}</Text>
+                            <IconTrash
+                                size="1.2rem"
+                                onClick={() => handleRemoveTask(index)}
+                                style={{ cursor: "pointer" }}
+                            ></IconTrash>
+                        </Flex>
+                    </List.Item>
+                ))}
+            </List>
         </div>
     );
 }
