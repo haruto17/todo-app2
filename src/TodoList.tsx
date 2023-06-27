@@ -78,7 +78,9 @@ function TodoList() {
                     >
                         <Flex direction={{ base: "column", sm: "row" }} gap={{ base: "sm", sm: "lg" }} align="center">
                             <Checkbox checked={todo.isCompleted} onChange={() => handleUpdateTask(index)}></Checkbox>
-                            <Text align="center">{todo.task}</Text>
+                            <Text td={todo.isCompleted ? "line-through" : "none"} align="center">
+                                {todo.task}
+                            </Text>
                             <IconTrash
                                 size="1.2rem"
                                 onClick={() => handleRemoveTask(index)}
