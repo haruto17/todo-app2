@@ -70,12 +70,7 @@ function TodoList() {
 
             <List mt="xl" listStyleType="none" spacing="xl">
                 {todos.map((todo, index) => (
-                    <List.Item
-                        key={index}
-                        style={{
-                            textDecoration: todo.isCompleted ? "line-through" : "none",
-                        }}
-                    >
+                    <List.Item key={index}>
                         <Flex direction={{ base: "column", sm: "row" }} gap={{ base: "sm", sm: "lg" }} align="center">
                             <Checkbox checked={todo.isCompleted} onChange={() => handleUpdateTask(index)}></Checkbox>
                             <Text td={todo.isCompleted ? "line-through" : "none"} align="center">
