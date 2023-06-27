@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Checkbox, Text, Input, Flex, Button, List, Title } from "@mantine/core";
+import { Checkbox, Text, Input, Flex, Button, List, Title, Container } from "@mantine/core";
 import { IconTrash } from "@tabler/icons-react";
 
 function TodoList() {
@@ -52,8 +52,10 @@ function TodoList() {
     };
 
     return (
-        <div>
-            <Title size="h1">Todo List</Title>
+        <Container mt="xl">
+            <Title mb="xs" size="h1">
+                Todo List
+            </Title>
             <form onSubmit={handleSubmit}>
                 <Flex direction={{ base: "column", sm: "row" }} gap={{ base: "sm", sm: "lg" }}>
                     <Input
@@ -85,7 +87,7 @@ function TodoList() {
                     </List.Item>
                 ))}
             </List>
-        </div>
+        </Container>
     );
 }
 
