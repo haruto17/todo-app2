@@ -68,7 +68,7 @@ function TodoList() {
                 </Flex>
             </form>
 
-            <List listStyleType="none" spacing="xl">
+            <List mt="xl" listStyleType="none" spacing="xl">
                 {todos.map((todo, index) => (
                     <List.Item
                         key={index}
