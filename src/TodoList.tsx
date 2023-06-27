@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Checkbox, Text } from "@mantine/core";
+import { Checkbox, Text, Input, Flex, Button } from "@mantine/core";
 import { IconTrash } from "@tabler/icons-react";
 import "./TodoList.css";
 
@@ -56,8 +56,17 @@ function TodoList() {
         <div>
             <h1>Todo List</h1>
             <form onSubmit={handleSubmit}>
-                <input value={task} placeholder="Add New Task" onChange={handleNewTask} />
-                <button type="submit">Add</button>
+                <Flex direction={{ base: "column", sm: "row" }} gap={{ base: "sm", sm: "lg" }}>
+                    <Input
+                        styles={{ input: { maxWidth: 300 } }}
+                        value={task}
+                        placeholder="Add New Task"
+                        onChange={handleNewTask}
+                    />
+                    <Button w={100} type="submit">
+                        Add
+                    </Button>
+                </Flex>
             </form>
 
             {todos.map((todo, index) => (
